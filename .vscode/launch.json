@@ -17,6 +17,9 @@
             "targetArchitecture": "x86",
             "stopAtConnect": true,
             // 启动gdb之前，做些准备：写映像文件、启动qemu
+            "windows": {
+                "preLaunchTask": "调试准备", // 仅在windows下可自动运行
+            },
             "linux": {
                 "preLaunchTask": "调试准备", // 仅在windows下可自动运行
                 "miDebuggerPath": "gdb", // linux下的特殊配置
@@ -34,11 +37,11 @@
                     "ignoreFailures": true
                 },
                 // 设置体系结构: i8086，方便以16位方式进行反汇编
-                {
-                    "description": "设置体系结构",
-                    "text": "-gdb-set arch i8086",
-                    "ignoreFailures": true
-                }
+                // {
+                //     "description": "设置体系结构",
+                //     "text": "-gdb-set arch i8086",
+                //     "ignoreFailures": true
+                // }
             ],
             // gdb连接后的设置
             "postRemoteConnectCommands": [
@@ -46,7 +49,7 @@
                     "description": "加载boot符号文件",
                     "text": "-file-symbol-file ./build/source/boot/boot.elf",
                     "ignoreFailures": false
-                },       
+                },
                 {
                     "description": "运行至0x7c00",
                     "text": "-exec-until *0x7c00",

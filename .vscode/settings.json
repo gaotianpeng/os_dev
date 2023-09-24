@@ -1,5 +1,4 @@
 {
-    "cmake.generator": "Unix Makefiles",
     "cmake.configureOnOpen": false,
     "cmake.sourceDirectory": "${workspaceFolder}/.",
     "C_Cpp.errorSquiggles": "Disabled",
@@ -10,5 +9,6 @@
         "types.h": "c",
         "fcntl.h": "c",
         "_default_fcntl.h": "c"
+
     },
 }
